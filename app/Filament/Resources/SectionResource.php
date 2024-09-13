@@ -39,9 +39,15 @@ class SectionResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('class.name')->sortable()->searchable(),
+                TextColumn::make('id')
+                    ->sortable(),
+                TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('class.name')
+                    ->badge()
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->date()
                     ->sortable(),
