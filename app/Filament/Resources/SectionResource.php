@@ -6,6 +6,8 @@ use App\Filament\Resources\SectionResource\Pages;
 use App\Filament\Resources\SectionResource\RelationManagers;
 use App\Models\Section;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,7 +26,12 @@ class SectionResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                    ->placeholder('Enter section name')
+                    ->required(),
+                Select::make('class_id')
+                    ->relationship('class', 'name')
+                    ->required(),
             ]);
     }
 
